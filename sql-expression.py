@@ -34,26 +34,26 @@ track_table = Table(
     Column("Milliseconds", Integer),
     Column("Bytes", Integer),
     Column("UnitPrice", Float)
-)
+) 
 
 # making connection
 with db.connect() as connection:
-    #QUery 1 - select all records from the "artist" table
+    # QUery 1 - select all records from the "artist" table
     # select_query = artist_table.select()
 
     # Query 2 - select only the name column from the artist table
     # select_query = artist_table.select().with_only_columns([artist_table.c.Name])
 
-    #Query 3 - select only "queen" from the artist table
+    # Query 3 - select only "queen" from the artist table
     # select_query = artist_table.select().where(artist_table.c.Name == "Queen")
 
-    #query 4 - select only by artistid from the artist table
+    # query 4 - select only by artistid from the artist table
     # select_query = artist_table.select().where(artist_table.c.ArtistId == 51)
-    
-    #query 5 - select only by albumid from the artist table
+
+    # query 5 - select only by albumid from the artist table
     # select_query = artist_table.select().where(album_table.c.AlbumId == 51)
 
-    #query 6 -seleect all tracks where the composer is queen from track table
+    # query 6 -seleect all tracks where the composer is queen from track table
     select_query = track_table.select().where(track_table.c.Composer == "Queen")
 
     results = connection.execute(select_query)
